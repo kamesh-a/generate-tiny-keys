@@ -1,5 +1,5 @@
 {
-  "name": "@kamesh-a/short-key-gen",
+  "name": "@justuseless/short-key-gen",
   "version": "0.0.7",
   "description": "Creating tiny keys from stings",
   "main": "src/index.js",
@@ -23,7 +23,7 @@
     "test": "echo \"no test specified\""
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
+    "registry": "https://registry.npmjs.org/"
   },
   "files": [
     "src/index.js",
