@@ -1,9 +1,14 @@
 const yargs = require('yargs/yargs')
-const { hideBin } = require('yargs/helpers')
+const {
+    hideBin
+} = require('yargs/helpers')
 const argv = yargs(hideBin(process.argv)).argv
 
 // Getting list of urls from args;
-const urls = [...argv._, 'https://medium.com/bb-tutorials-and-thoughts/react-how-to-proxy-to-backend-server-5588a9e0347#:~:text=In%20React%2C%20the%20create%2Dreact,calls%20based%20on%20the%20URL.'];
+const urls = [
+    ...argv._, 
+    'https://medium.com/bb-tutorials-and-thoughts/react-how-to-proxy-to-backend-server-5588a9e0347#:~:text=In%20React%2C%20the%20create%2Dreact,calls%20based%20on%20the%20URL.'
+];
 const crc32 = require('crc-32');
 /**
  * Base62 characters
@@ -13,7 +18,7 @@ const crc32 = require('crc-32');
  */
 const char = '01234abcdefghijklmnopqrstuvwxyz56789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
-module.exports = function toBase62(longUrl) {
+function toBase62(longUrl) {
     // Alternative  
     // 1. using node cryto module to  generate random bytes for specific length and then convert to base62
     // 2. using math.random method ( less stabler and more collision than crypto mod )
@@ -23,7 +28,7 @@ module.exports = function toBase62(longUrl) {
     var value = Math.abs(crc32.str(longUrl));
     console.log(`Hashcode : ${value}`)
     var tinykey = '';
-    while(value > 0 ){
+    while (value > 0) {
         var currentChar = char[Math.floor(value % 62)];
         tinykey += currentChar;
         value = Math.floor(value / 62);
@@ -32,13 +37,17 @@ module.exports = function toBase62(longUrl) {
     return tinykey;
 }
 
-urls
-    .map( url => {
-        return { 
-            src: url, 
-            short: toBase62(url)
-        };
-    })
-    .forEach( shortObj => {
-        console.log(`${shortObj.short} <=> ${shortObj.src}`);
-    });
+module.exports = toBase62;
+
+if (argv._.length) {
+    urls
+        .map(url => {
+            return {
+                src: url,
+                short: toBase62(url)
+            };
+        })
+        .forEach(shortObj => {
+            console.log(`${shortObj.short} <=> ${shortObj.src}`);
+        });
+}
