@@ -3,9 +3,25 @@
   "version": "0.0.3",
   "description": "Creating tiny keys from stings",
   "main": "src/index.js",
+  "keywords": [
+    "short",
+    "key",
+    "minify",
+    "minimize",
+    "JSON",
+    "generate",
+    "create",
+    "sequence",
+    "sequential",
+    "keymap"
+  ],
   "scripts": {
     "test": "echo \"no test specified\""
   },
+  "files": [
+    "src/index.js",
+    "README.md"
+  ],
   "author": "kamesh.arumugam@gmail.com",
   "license": "MIT",
   "dependencies": {
