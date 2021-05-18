@@ -9,10 +9,11 @@ const crc32 = require('crc-32');
  * Base62 characters
  * 62^6 = 56800235584 unique chars, if we need 6 characters
  * 62^7 = 3521614606208 unique chars, if we need 7 characters
+ * 62^8 = 218340105584896
  */
 const char = '01234abcdefghijklmnopqrstuvwxyz56789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
-function toBase62(longUrl) {
+module.exports = function toBase62(longUrl) {
     // Alternative  
     // 1. using node cryto module to  generate random bytes for specific length and then convert to base62
     // 2. using math.random method ( less stabler and more collision than crypto mod )
