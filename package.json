@@ -1,10 +1,10 @@
 {
-  "name": "@useless/short-url-stuff",
+  "name": "@kamesh_a/short-key-gen",
   "version": "0.0.1",
   "description": "Creating tiny keys from stings",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"no test specified\""
   },
   "author": "kamesh.arumugam@gmail.com",
   "license": "MIT",
