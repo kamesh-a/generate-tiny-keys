@@ -1,6 +1,6 @@
 {
   "name": "@justuseless/short-key-gen",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Creating tiny keys from stings",
   "main": "src/index.js",
   "repository": {
