@@ -1,5 +1,7 @@
-#### Short lib function
+## Short Lib function to generate tiny url keys based on string;
 
-### Usage, space separated urls
-- node src/index.js https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function
-- node src/index.js <url>space<urls>...
+### How to use
+```javascript
+ - node src/index.js https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function
+ - node src/index.js <url>space<urls>...
+```
