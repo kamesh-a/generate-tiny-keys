@@ -31,11 +31,11 @@ const char = '01234abcdefghijklmnopqrstuvwxyz56789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
  * option 4 : Using crc32
  */    
 function toBase62ByCrc32(longUrl) {
-    var value = Math.abs(crc32.str(longUrl));
+    let value = Math.abs(crc32.str(longUrl));
     console.log(`Hashcode : ${value}`)
-    var tinykey = '';
+    let tinykey = '';
     while (value > 0) {
-        var currentChar = char[Math.floor(value % 62)];
+        const currentChar = char[Math.floor(value % 62)];
         tinykey += currentChar;
         value = Math.floor(value / 62);
     }
@@ -47,7 +47,6 @@ function toBase62ByCrc32(longUrl) {
  * option 1 : Using Crypto Module
  */    
 function toBase62ByCrypto(longUrl, length=6) {
-    const crypto = require('crypto');
     if(length > 2**31-1) {
         length = 10;
     }
@@ -58,7 +57,6 @@ function toBase62ByCrypto(longUrl, length=6) {
     });
 
     return base62Arr.reduce((a,c) => {
-        console.log(c);
         return `${a}${char[c]}`;
     },'');
 }
@@ -70,6 +68,7 @@ function toBase62MathRandom(longUrl, length=6) {
     if(length > 2**31-1) {
         length = 10;
     }
+
     let tinyKey = '';
 
     for (let i = 0; i < length; i++) {
@@ -99,6 +98,9 @@ function toBase62(longUrl, type='crc32', length=6) {
 
 module.exports = toBase62;
 
+/**
+ * Prints only when invoked from CLI or Terminal
+ */
 if (argv._.length) {
     urls
         .map(url => {
