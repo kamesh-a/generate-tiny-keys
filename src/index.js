@@ -80,7 +80,7 @@ function toBase62MathRandom(longUrl, length=6) {
     return tinyKey;
 }
 
-function toBase62(longUrl, type='random', length=6) {
+function toBase62(longUrl, type='crc32', length=6) {
     switch(type) {
         case 'crc32': {
             return toBase62ByCrc32(longUrl);
