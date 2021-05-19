@@ -1,6 +1,6 @@
 {
   "name": "@kamesh-a/short-key-gen",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Creating tiny keys from stings",
   "main": "src/index.js",
   "repository": {
